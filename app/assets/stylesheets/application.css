@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.edit-btn {
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px 4px;
+  text-align: center;
+}
+
+.edit-btn i {
+  color: white;
+  font-size: 20px;
+}
+
+.edit-btn:hover i {
+  color: black;
+}
