@@ -6,23 +6,17 @@
 	      </tr>
 	      <tr>
 	        <th>name</th>
-	        <th><%= current_user.name %></th>
+	        <th><%= user.name %></th>
 	      </tr>
 	      <tr>
 	        <th>introduction</th>
-	        <th><%= current_user.introduction %></th>
+	        <th><%= user.introduction %></th>
 	      </tr>
 	    </table>
 
 	    <div class='row'>
-			  <% if user == current_user %>
-			    <%= link_to edit_user_path(user), class: "edit-icon" do %>
-	          <i class="fa-solid fa-user-gear"></i>
-					<% end %>
-				<% else %>
-				  <%= link_to user_path(current_user), class: "edit-icon" do %>
-						<i class="fa-solid fa-user-gear"></i>
-					<% end %>
+			  <%= link_to edit_user_path(user), class: "edit-icon" do %>
+	        <i class="fa-solid fa-user-gear"></i>
 				<% end %>
 	    </div>
 
@@ -33,8 +27,8 @@
           <%= f.text_field :title, class: "form-control" %>
         </div>
         <div class="form-group">
-			  	<%= f.label :opinion, "Opinion" %>
-          <%= f.text_area :opinion, class: "form-control" %>
+			  	<%= f.label :body, "Opinion" %>
+          <%= f.text_area :body, class: "form-control" %>
         </div>
         <%= f.submit "Create Book", class: "btn btn-success mt-2" %>
       <% end %>

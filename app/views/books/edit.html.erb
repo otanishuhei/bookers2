@@ -1,21 +1,23 @@
-<div class="container d-flex justify-content-center align-items-center">
-  <%= render 'error_messages', object: @book %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= render 'error_messages', object: @book %>
 
-  <div class="col-md-6">
-    <h1 class="mb-3">Editing Book</h1>
-	  <%= form_with model: @book do |f| %>
-      <div class="form-group">
-				<%= f.label :title, "Title" %>
-        <%= f.text_field :title, class: "form-control" %>
-      </div>
-      <div class="form-group">
-			  <%= f.label :opinion, "Opinion" %>
-        <%= f.text_area :opinion, class: "form-control" %>
-      </div>
-      <%= f.submit "Update Book", class: "btn btn-success mt-2 mb-3" %>
-    <% end %>
-    <%= link_to 'Show', book_path(@book) %>
-    <span> | </span>
-    <%= link_to 'Back', books_path %>
-	</div>
+      <h1 class="mb-3">Editing Book</h1>
+  	  <%= form_with model: @book do |f| %>
+        <div class="form-group">
+	  			<%= f.label :title, "Title" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+	  		  <%= f.label :body, "Opinion" %>
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+        <%= f.submit "Update Book", class: "btn btn-success mt-2 mb-3" %>
+      <% end %>
+      <%= link_to 'Show', book_path(@book) %>
+      <span> | </span>
+      <%= link_to 'Back', books_path %>
+	  </div>
+  </div>
 </div>

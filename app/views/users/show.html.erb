@@ -1,6 +1,6 @@
 <div class='container px-5 px-sm-0'>
   <%= render 'error_messages', object: @new_book %>
-	
+
 	<div class='row'>
 	  <%= render 'leftbox', user: @user, book: @new_book %>
     <div class='col-md-8 offset-md-1'>
@@ -24,12 +24,14 @@
 				  <% @books.each do |book| %>
 						<tr>
 						  <td>
-                <%= image_tag @user.get_image, size:"80x80" %>
+							  <%= link_to user_path(book.user) do %>
+                  <%= image_tag @user.get_image, size:"80x80" %>
+								<% end %>
               </td>
 						  <td>
                 <%= link_to book.title, book_path(book) %>
               </td>
-							<td><%= book.opinion %></td>
+							<td><%= book.body %></td>
 						</tr>
 					<% end %>
 				</tbody>

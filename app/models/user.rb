@@ -5,21 +5,21 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :books, dependent: :destroy
-  has_one_attached :image
+  has_one_attached :profile_image
 
-  validates :name, presence: true, uniqueness: true
-  validates :introduction, presence: true
+  validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 20 }
+  validates :introduction, length: { maximum: 50 }, allow_blank: true
 
   def get_image
-  	unless image.attached?
+  	unless profile_image.attached?
 	    file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      image.attach(
+      profile_image.attach(
         io: File.open(file_path),
         filename: 'default-image.jpg',
         content_type: 'image/jpeg'
       )
     end
-		image
+		profile_image
   end
 
 end
